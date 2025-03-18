@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8faff;
+  --foreground: #171717;
+  --primary: #4E9AFF;
+  --primary-dark: #3879d9;
+  --primary-light: #eaf2ff;
+  
+  /* Card and container backgrounds for light mode */
+  --card-background: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.1);
+  --card-shadow: rgba(0, 0, 0, 0.05);
+  
+  /* Secondary colors */
+  --secondary-background: #f0f4f8;
+  --secondary-foreground: #4a5568;
+  
+  /* Success/Error colors */
+  --success: #10b981;
+  --error: #ef4444;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+ :root {
+    --background: #121212; /* Slightly lighter than pure black for better readability */
+    --foreground: #f1f5f9; /* Off-white for better eye comfort */
+    --primary: #60a5fa; /* Brighter blue that's more visible in dark mode */
+    --primary-dark: #3b82f6;
+    --primary-light: #1e3a5f;
+    
+    /* Card and container backgrounds for dark mode */
+    --card-background: #1e1e1e; /* Slightly lighter than background for separation */
+    --card-border: rgba(255, 255, 255, 0.1);
+    --card-shadow: rgba(0, 0, 0, 0.3);
+    
+    /* Secondary colors */
+    --secondary-background: #2d3748;
+    --secondary-foreground: #cbd5e0;
+    
+    /* Success/Error colors retain similar hues but with adjusted brightness */
+    --success: #059669;
+    --error: #dc2626;
+  } 
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Apply card styles */
+.card, 
+.bg-white {
+  background-color: var(--card-background) !important;
+  border-color: var(--card-border) !important;
+  color: var(--foreground) !important;
+}
+
+/* Override text colors for better visibility */
+.text-gray-600, 
+.text-gray-700 {
+  color: var(--secondary-foreground) !important;
+}
+
+/* Make shadows adapt to dark mode */
+.shadow-md,
+.shadow-lg,
+.shadow-sm {
+  box-shadow: 0 4px 6px var(--card-shadow) !important;
+}
+
+/* Original decorative elements */
+.decorative-star {
+  position: absolute;
+  opacity: 0.5;
+}
+
+.decorative-line {
+  position: absolute;
+  opacity: 0.4;
+}
